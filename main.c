@@ -26,6 +26,13 @@ Description:
 #define MSG_MAX 100
 
 
+// STRUCT DEFINITIONS
+
+struct packet {
+	char message[MSG_MAX];
+} packed;
+
+
 // MODULAR FUNCTIONS
 
 int input_checker(int argc) {
@@ -53,8 +60,11 @@ int main(int argc, char **argv) {
 	struct sockaddr_in dest_addr, my_addr;
 	int sockfd;
 	char *incoming, *outgoing;
+	struct timeval timer;
+	fd_set r_set;
+	int sel_err;
 
-	char test[MSG_MAX] = "Hello World!\n";
+
 
 	// Parsing inputs and seeing if there are any errors
 	if (input_checker(argc) == 0) {
@@ -77,7 +87,8 @@ int main(int argc, char **argv) {
 	// Creating address structures for source and destination
 
 	dest_addr.sin_family = AF_INET;
-	dest_addr.sin_addr.s_addr = htonl(dest_ip);
+	inet_aton("localhost", &dest_addr.sin_addr);
+	//dest_addr.sin_addr.s_addr = htonl(dest_ip);
 	dest_addr.sin_port = htons(dest_port);
 
 	my_addr.sin_family = AF_INET;
@@ -100,20 +111,32 @@ int main(int argc, char **argv) {
 		goto EXIT;
 	}
 
+	timer.tv_sec = 0;
+	timer.tv_usec = 5;
+
 	outgoing = (char *)malloc(sizeof(char) * MSG_MAX);
 	incoming = (char *)malloc(sizeof(char) * MSG_MAX);
 
 	while(1) {
 		fprintf(stdout, "> ");
 		fgets(outgoing, MSG_MAX, stdin);
+
 		if (strcmp(outgoing, "r\n") == 0) {
-			fprintf(stdout, "here\n");
-			//recvfrom(sockfd, (void *)incoming, MSG_MAX, 0, NULL, NULL);
-			//fprintf(stdout, "%s", incoming);
+			FD_ZERO(&r_set);
+			FD_SET(sockfd, &r_set);
+			sel_err = select(sockfd+1, &r_set, NULL, NULL, &timer);
+			if (sel_err == -1) {
+				printf("ERROR: select function failed\n");
+			} else if (sel_err != 0) {
+				recvfrom(sockfd, incoming, MSG_MAX, 0, NULL, NULL);
+				fprintf(stdout, "%s", incoming);
+			}
+			
 		} else if (strcmp(outgoing, "q\n") == 0) {
 			break;
-		} else {
-			sendto(sockfd, (void *)test, sizeof(test), 0, (const struct sockaddr *)&dest_addr, sizeof(dest_addr));
+
+		} else if (strcmp(outgoing, "\n") != 0) {
+			sendto(sockfd, (void *)outgoing, MSG_MAX, 0, (const struct sockaddr *)&dest_addr, sizeof(dest_addr));
 		}
 	}
 
