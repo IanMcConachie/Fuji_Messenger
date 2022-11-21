@@ -1,0 +1,432 @@
+## Common Words
+
+# 100 Most Common English Words
+
+the 1
+of 1
+and 1
+a 1
+to 1
+in 1
+is 1
+you 1
+that 1
+it 1
+he 1
+she 1
+was 1
+for 1
+on 1
+are 1
+as 1
+with 1
+his 1
+hers 1
+they 1
+i 1
+at 1
+be 1
+this 1
+have 1
+from 1
+or 1
+one 1
+had 1
+by 1
+word 1
+but 1
+not 1
+what 1
+all 1
+were 1
+we 1
+when 1
+your 1
+can 1
+said 1
+there 1
+use 1
+an 1
+each 1
+which 1
+do 1
+how 1
+their 1
+if 1
+will 1
+up 1
+other 2
+about 2
+out 1
+many 2
+then 1
+some 1
+would 1
+make 1
+like 1
+him 1
+her 1
+into 2
+time 1
+has 1
+look 1
+two 1
+more 1
+write 1
+go 1
+see 1
+number 2
+no 1
+my 1
+than 1
+first 1
+water 2
+been 1
+call 1
+who 1
+oil 2
+its 1
+now 1
+find 1
+down 1
+day 1
+did 1
+get 1
+come 1
+said 1
+so 1
+people 2
+part 1
+
+# More Common English Words
+
+once 1
+twice 1
+thrice 1
+
+
+## Common Nature Haiku Words
+
+# Landscape
+
+fuji 2
+lake 1
+river 2
+mountain 2
+mount 1
+mt. 1
+pond 1
+sand 1
+park 1
+garden 2
+wave 1
+waves 1
+surf 1
+water 2
+earth 1
+fire 2
+air 1
+beach 1
+shore 1
+
+# Weather
+
+snowing 2
+snow 1
+winter 2
+ice 1
+frost 1
+rain 1
+raining 2
+rains 1
+dew 1
+hail 1
+sleet 1
+mist 1
+fog 1
+clouds 1
+cloud 1
+sky 1
+
+
+
+# Time
+
+january 4
+february 4
+march 1
+april 2
+may 1
+june 1
+july 2
+august 2
+september 3
+october 3
+november 3
+december 3
+daylight 2
+midnight 2
+spring 1
+autumn 2
+summer 2
+
+# Space
+
+sun 1
+suns 1
+moon 1
+moons 1
+star 1
+stars 1
+space 1
+morning 2
+night 1
+dawn 1
+dusk 1
+month 1
+
+# Plant Life
+
+tree 1
+trees 1
+forest 2
+woods 1
+wood 1
+flower 2
+flowers 2
+bud 1
+rose 1
+leaves 1
+leaf 1
+thorn 1
+field 1
+grass 1
+blades 1
+blade 1
+moss 1
+lichen 2
+seed 1
+seeds 1
+sapling 2
+saplings 2
+
+
+# Animals
+
+bug 1
+fly 1
+bee 1
+ladybug 3
+deer 1
+lamb 1
+lambs 1
+crow 1
+raven 2
+robin 2
+vulture 2
+raccoon 2
+squirrel 2
+squirrels 2
+rat 1
+rats 1
+mouse 1
+mice 1
+snail 1
+slug 1
+bear 1
+bears 1
+fox 1
+foxes 2
+dog 1
+dogs 1
+cat 1
+cats 1
+fish 1
+koi 1
+goldfish 2
+carp 1
+salmon 2
+trout 1
+
+
+# Humans 
+
+human 2
+man 1
+woman 2
+life 1
+death 1
+lives 1
+dies 1
+hand 1
+foot 1
+face 1
+chest 1
+arm 1
+leg 1
+head 1
+bone 1
+bones 1
+hair 1
+eyes 1
+eye 1
+nose 1
+ear 1
+ears 1
+finger 2
+fingers 2
+toe 1
+toes 1
+tooth 1
+teeth 1
+foot 1
+feet 1
+wrist 1
+ankle 2
+belly 2
+stomach 2
+beard 1
+mustache 2
+tongue 1
+
+
+
+## Common Descriptors
+
+# Colors
+
+blue 1
+red 1
+green 1
+yellow 2
+pink 1
+purple 2
+black 1
+light 1
+dark 1
+gold 1
+silver 2
+vibrant 2
+colorful 3
+bright 1
+
+# Emotions
+
+sad 1
+happy 2
+angry 2
+nervous 2
+disgusted 3
+anxious 2
+calm 1
+panicked 3
+tired 1
+sleepy 2
+hungry 2
+
+# Shape
+
+dense 1
+thin 1
+deep 1
+shallow 2
+tall 1
+short 1
+full 1
+empty 2
+big 1
+small 1
+tiny 2
+large 1
+giant 2
+
+
+
+# Other
+
+frosty 2
+cold 1
+warm 1
+hot 1
+fresh 1
+rotten 2
+old 1
+new 1
+young 1
+dead 1
+alive 2
+proud 1
+timid 2
+beautiful 4
+pretty 2
+amazing 3
+fantastic 3
+fun 1
+boring 2
+dull 1
+bleak 1
+
+
+## Common Verbs
+
+
+## Common Tech Words
+
+
+# General
+
+hello 2
+world 1
+cs 2
+dijkstras 2
+graph 1
+algorithm 4
+software 2
+hardware 2
+
+# Networking
+
+udp 3
+tcp 3
+network 2
+networks 2
+
+# Programming
+
+testing 2
+global 2
+local 2
+object 2
+oriented 4
+programming 3
+program 2
+code 1
+type 1
+function 2
+script 1
+github 2
+git 1
+push 1
+pull 1
+branch 1
+fork 1
+commit 2
+
+# Languages
+
+css 3
+html 4
+java 2
+javascript 3
+c 1
+c++ 3
+c# 2
+python 2
+ruby 2
+r 1
+php 3
+js 2
+
+
+
+
