@@ -6,8 +6,8 @@ CFLAGS=-Wall -W -g
 
 all: main
 
-main: main.cpp
-	$(CC) main.cpp $(CFLAGS) -o Fuji
+main: main.c
+	$(CC) main.c $(CFLAGS) -o Fuji
 
 
 clean:
