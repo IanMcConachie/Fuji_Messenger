@@ -247,6 +247,10 @@ goldfish 2
 carp 1
 salmon 2
 trout 1
+duck 1
+ducks 1
+beaver 2
+beavers 2
 
 
 # Humans 
