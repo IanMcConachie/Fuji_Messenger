@@ -57,10 +57,11 @@ int input_checker(int argc) {
 }
 
 
-void generate_dict(map<string, int> syllables) {
+void generate_dict(map<string, int> *my_map) {
 	int ind;
 	string word;
 	int syls;
+	map<string, int> syllables;
 
 	FILE *f_ptr;
 
@@ -82,35 +83,54 @@ void generate_dict(map<string, int> syllables) {
 				ind++;
 			}
 			syls = atoi(line+ind);
-			//printf("\n%d\n", syls);
 			syllables[word] = syls;
 		}
 	}
 
+
+	*my_map = syllables;
 	fclose(f_ptr);
 	
 }
 
 
-int is_haiku(char *str, map<string,int> syllables) {
+int is_haiku(char *str, map<string,int> *my_map) {
 	int ret = 1;
-	/*
 	int ind = 0;
 	int line_ind = 0;
+	int line_cnt = 1;
 	int line_syls;
+	map<string, int> syllables = *my_map;
 	string word;
-	
 
-	while(str[ind] != '\0') {
+	printf("\n=====================\n");
+
+	while(str[ind] != '\n') {
+		if(str[ind] == '|') {
+			line_cnt++;
+		}
+		ind++;
+	}
+
+	if (line_cnt != 3) {
+		ret = -2;
+		printf("Number of lines: %d\n", line_cnt);
+		goto EXIT;
+	}
+
+	
+	ind = 0;
+	while((str[ind] != '\n')) {
 		line_syls = 0;
-		while(str[ind] != '|') {
+		while((str[ind] != '|')&&(str[ind] != '\0')) {
 			word = "";
-			while(str[ind] != ' ') {
+			while((str[ind] != ' ')&&(str[ind] != '\n')) {
 				word = word + str[ind];
 				ind++;
 			}
-			
-			if (syllables[word]) {
+			//printf("%d\n", syllables[word]);
+			if (syllables.find(word) == syllables.end()) {
+				printf("Word not found: %s\n", word.c_str());
 				ret = -1;
 				goto EXIT;
 			} else {
@@ -118,6 +138,7 @@ int is_haiku(char *str, map<string,int> syllables) {
 			}
 			ind++;
 		}
+		
 		if ((line_ind == 0)&&(line_syls != 5)) {
 			ret = 0;
 		} else if ((line_ind == 1)&&(line_syls != 7)) {
@@ -125,14 +146,16 @@ int is_haiku(char *str, map<string,int> syllables) {
 		} else if ((line_ind == 2)&&(line_syls != 5)) {
 			ret = 0;
 		}
-
-
+		printf("Line %d syllables: %d\n", line_ind+1, line_syls);
 		line_ind++;
-		ind++;
+		if (line_ind == 3) {
+			break;
+		}
+		ind = ind + 2;
 	}
 
 EXIT:
-	*/
+	printf("=====================\n\n");
 	return ret;
 }
 
@@ -202,7 +225,7 @@ int main(int argc, char **argv) {
 	}
 
 	// Creating syllable dictionary
-	generate_dict(syllables);
+	generate_dict(&syllables);
 
 	timer.tv_sec = 0;
 	timer.tv_usec = 5;
@@ -229,10 +252,16 @@ int main(int argc, char **argv) {
 			break;
 
 		} else if (strcmp(outgoing, "\n") != 0) {
-			if (is_haiku(outgoing, syllables)) {
+			int syl_ret = is_haiku(outgoing, &syllables);
+			if (syl_ret == 1) {
+				printf("Message Sent\n");
 				sendto(sockfd, (void *)outgoing, MSG_MAX, 0, (const struct sockaddr *)&dest_addr, sizeof(dest_addr));
-			} else {
+			} else if (syl_ret == 0) {  
 				printf("ERROR: Not a valid haiku\n");
+			} else if (syl_ret == -1) {
+				printf("ERROR: Word not recognized\n");
+			} else if (syl_ret == -2) {
+				printf("ERROR: Incorrect number of lines\n");
 			}
 		}
 	}
